@@ -19,12 +19,11 @@ export declare class City {
     getNodeAt(position: Position): Node | null;
     getAllPaths(): Path[];
     getPathAt(position: Position): Path | null;
-    markAt(position: Position, tile: MatrixTile): void;
     getAt(position: Position): MatrixTile;
-    isEmptyAt(position: Position): boolean;
-    each(callback: (position: Position, tile: MatrixTile) => boolean | void): void;
-    reset(): void;
+    private markAt;
+    private isEmptyAt;
     generate(params?: CityGenerationParametersCustom): Promise<void>;
+    private reset;
     private generatePaths;
     private processingPath;
     private generateBuildings;

@@ -3,12 +3,13 @@ import { Node } from './node';
 import { Building } from './building';
 export declare class Path {
     readonly direction: number;
-    readonly buildings: Building[];
+    private buildings;
     private nodeBeg;
     private nodeEnd;
     private cursor;
     constructor(node: Node, direction: number);
-    getPoints(): {
+    getBuildings(): Building[];
+    getPositions(): {
         beg: Position;
         end: Position;
     };
