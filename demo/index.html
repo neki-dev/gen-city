@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Gen-City Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="sandbox">
+      <div class="controls">
+        <div class="parameters">
+          <div class="inline">
+            <div class="item">
+              <label>Width</label>
+              <input type="input" name="worldWidth" value="200" />
+            </div>
+            <div class="item">
+              <label>Height</label>
+              <input type="input" name="worldHeight" value="140" />
+            </div>
+          </div>
+          <div class="item">
+            <label>Min street length</label>
+            <input type="input" name="streetMinLength" value="10" />
+          </div>
+          <div class="inline">
+            <div class="item">
+              <label>Min building size</label>
+              <input type="input" name="buildingMinSize" value="3" />
+            </div>
+            <div class="item">
+              <label>Max building size</label>
+              <input type="input" name="buildingMaxSize" value="6" />
+            </div>
+          </div>
+          <div class="inline">
+            <div class="item">
+              <label>Min building space</label>
+              <input type="input" name="buildingMinSpace" value="1" />
+            </div>
+            <div class="item">
+              <label>Max building space</label>
+              <input type="input" name="buildingMaxSpace" value="3" />
+            </div>
+          </div>
+          <div class="item">
+            <label>Probability intersection</label>
+            <input type="input" name="probabilityIntersection" value="0.1" />
+          </div>
+          <div class="item">
+            <label>Probability turn</label>
+            <input type="input" name="probabilityTurn" value="0.05" />
+          </div>
+          <div class="item">
+            <label>Probability street end</label>
+            <input type="input" name="probabilityStreetEnd" value="0.001" />
+          </div>
+          <div class="item c">
+            <input type="checkbox" name="seedMode" />
+            <label>Generation by seed</label>
+          </div>
+        </div>
+
+        <button id="generate">Generate</button>
+
+        <div class="meta">
+          <a
+            href="https://github.com/neki-dev/gen-city#generator"
+            target="_blank"
+            >📑 Documentation</a
+          >
+          <a
+            href="https://github.com/neki-dev/gen-city/blob/main/demo/src/index.ts"
+            target="_blank"
+            >📑 Get source code</a
+          >
+        </div>
+      </div>
+
+      <div class="preview">
+        <canvas id="screen"></canvas>
+      </div>
+    </div>
+
+    <script src="dist/index.js"></script>
+  </body>
+</html>

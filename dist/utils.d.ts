@@ -1,0 +1,10 @@
+import { Point2D } from './types';
+export declare function randomChance(value: number): boolean;
+export declare function randomItem(list: any[]): any;
+export declare function randomRange(min: number, max: number): number;
+export declare function generateSeed(size?: number): number[];
+export declare function degToRad(degrees: number): number;
+export declare function turnDirection(direction: number): number[];
+export declare function forkDirection(direction: number): number[];
+export declare function getShift(direction: number, offset?: number): Point2D;
+export declare function between(value: number, period: [number, number]): boolean;

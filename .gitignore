@@ -1,0 +1,6 @@
+.git
+.idea
+node_modules/
+coverage/
+demo/dist/
+.DS_Store

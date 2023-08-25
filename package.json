@@ -1,0 +1,39 @@
+{
+  "name": "gen-city",
+  "description": "Procedural generation city",
+  "version": "1.0.0",
+  "keywords": [
+    "map",
+    "generation",
+    "steet",
+    "tilemap",
+    "city",
+    "procedural",
+    "2d"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Nikita Galadiy",
+    "email": "dev@neki.guru",
+    "url": "https://neki.guru/"
+  },
+  "main": "./dist/index.js",
+  "scripts": {
+    "watch": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "lint": "eslint ./src --fix"
+  },
+  "devDependencies": {
+    "eslint": "^8.36.0",
+    "eslint-config-neki": "^1.3.0",
+    "@types/node": "^18.15.9",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.2",
+    "webpack": "^5.76.3",
+    "webpack-cli": "^5.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neki-dev/gen-city.git"
+  }
+}
