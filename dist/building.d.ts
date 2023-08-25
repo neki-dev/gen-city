@@ -1,8 +1,8 @@
-import { Point2D } from './types';
+import { Position } from './types';
 export declare class Building {
-    readonly vertices: Point2D[];
-    readonly position: Point2D;
+    readonly vertices: Position[];
+    readonly position: Position;
     readonly width: number;
     readonly height: number;
-    constructor(vertices: Point2D[]);
+    constructor(vertices: Position[]);
 }

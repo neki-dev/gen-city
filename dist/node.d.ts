@@ -1,11 +1,11 @@
 import { Path } from './path';
-import { NodeType, Point2D } from './types';
+import { NodeType, Position } from './types';
 export declare class Node {
-    readonly position: Point2D;
+    readonly position: Position;
     readonly id: number;
     private outputPaths;
     private inputPaths;
-    constructor(id: number, position: Point2D);
+    constructor(id: number, position: Position);
     addOutputPath(direction: number): Path;
     getOutputPaths(): Path[];
     addInputPath(path: Path): void;

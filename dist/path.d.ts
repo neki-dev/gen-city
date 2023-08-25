@@ -1,4 +1,4 @@
-import { Point2D } from './types';
+import { Position } from './types';
 import { Node } from './node';
 import { Building } from './building';
 export declare class Path {
@@ -9,20 +9,20 @@ export declare class Path {
     private cursor;
     constructor(node: Node, direction: number);
     getPoints(): {
-        beg: Point2D;
-        end: Point2D;
+        beg: Position;
+        end: Position;
     };
     isCompleted(): boolean;
     getNextCursor(): {
         x: number;
         y: number;
     };
-    getCursor(): Point2D;
-    setCursor(position: Point2D): void;
+    getCursor(): Position;
+    setCursor(position: Position): void;
     getNodeBeg(): Node;
     getNodeEnd(): Node | null;
     setNodeEnd(node: Node): void;
-    addBuilding(vertices: Point2D[]): Building;
+    addBuilding(vertices: Position[]): Building;
     getLength(): number;
-    each(callback: (position: Point2D) => void): void;
+    each(callback: (position: Position) => void): void;
 }

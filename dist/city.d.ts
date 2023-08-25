@@ -1,6 +1,6 @@
 import { Path } from './path';
 import { Node } from './node';
-import { CityData, Point2D, MatrixTile, CityGenerationParametersCustom } from './types';
+import { CityData, Position, MatrixTile, CityGenerationParametersCustom } from './types';
 import { Building } from './building';
 export declare class City {
     readonly width: number;
@@ -14,15 +14,15 @@ export declare class City {
     getMatrix(): MatrixTile[][];
     getSeed(): number[] | null;
     getAllBuildings(): Building[];
-    getBuildingAt(position: Point2D): Building | null;
+    getBuildingAt(position: Position): Building | null;
     getAllNodes(): Node[];
-    getNodeAt(position: Point2D): Node | null;
+    getNodeAt(position: Position): Node | null;
     getAllPaths(): Path[];
-    getPathAt(position: Point2D): Path | null;
-    markAt(position: Point2D, tile: MatrixTile): void;
-    getAt(position: Point2D): MatrixTile;
-    isEmptyAt(position: Point2D): boolean;
-    each(callback: (position: Point2D, tile: MatrixTile) => boolean | void): void;
+    getPathAt(position: Position): Path | null;
+    markAt(position: Position, tile: MatrixTile): void;
+    getAt(position: Position): MatrixTile;
+    isEmptyAt(position: Position): boolean;
+    each(callback: (position: Position, tile: MatrixTile) => boolean | void): void;
     reset(): void;
     generate(params?: CityGenerationParametersCustom): Promise<void>;
     private generatePaths;

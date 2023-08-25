@@ -1,16 +1,16 @@
 /* eslint-disable import/no-cycle */
-import { Point2D } from './types';
+import { Position } from './types';
 
 export class Building {
-  readonly vertices: Point2D[];
+  readonly vertices: Position[];
 
-  readonly position: Point2D;
+  readonly position: Position;
 
   readonly width: number;
 
   readonly height: number;
 
-  constructor(vertices: Point2D[]) {
+  constructor(vertices: Position[]) {
     if (vertices.length !== 4) {
       throw Error('Invalid building vertices');
     }

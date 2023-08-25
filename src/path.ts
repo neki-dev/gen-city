@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { Point2D } from './types';
+import { Position } from './types';
 import { Node } from './node';
 import { getShift } from './utils';
 import { Building } from './building';
@@ -13,7 +13,7 @@ export class Path {
 
   private nodeEnd: Node | null = null;
 
-  private cursor: Point2D;
+  private cursor: Position;
 
   constructor(node: Node, direction: number) {
     this.direction = direction;
@@ -45,7 +45,7 @@ export class Path {
     return this.cursor;
   }
 
-  public setCursor(position: Point2D) {
+  public setCursor(position: Position) {
     this.cursor = position;
   }
 
@@ -64,7 +64,7 @@ export class Path {
     this.cursor = node.position;
   }
 
-  public addBuilding(vertices: Point2D[]) {
+  public addBuilding(vertices: Position[]) {
     const building = new Building(vertices);
 
     this.buildings.push(building);
@@ -79,7 +79,7 @@ export class Path {
     );
   }
 
-  public each(callback: (position: Point2D) => void) {
+  public each(callback: (position: Position) => void) {
     const shift = getShift(this.direction);
     const length = this.getLength();
     const position = { ...this.nodeBeg.position };

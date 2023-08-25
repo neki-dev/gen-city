@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { Point2D } from './types';
+import { Position } from './types';
 
 export function randomChance(value: number) {
   return Math.random() > 1.0 - value;
@@ -40,7 +40,7 @@ export function forkDirection(direction: number): number[] {
   return [direction].concat(turnDirection(direction));
 }
 
-export function getShift(direction: number, offset: number = 1): Point2D {
+export function getShift(direction: number, offset: number = 1): Position {
   return {
     x: Math.round(Math.cos(degToRad(direction))) * offset,
     y: Math.round(Math.sin(degToRad(direction))) * offset,

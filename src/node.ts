@@ -1,9 +1,9 @@
 /* eslint-disable import/no-cycle */
 import { Path } from './path';
-import { NodeType, Point2D } from './types';
+import { NodeType, Position } from './types';
 
 export class Node {
-  readonly position: Point2D;
+  readonly position: Position;
 
   readonly id: number;
 
@@ -11,7 +11,7 @@ export class Node {
 
   private inputPaths: Path[] = [];
 
-  constructor(id: number, position: Point2D) {
+  constructor(id: number, position: Position) {
     this.id = id;
     this.position = position;
   }

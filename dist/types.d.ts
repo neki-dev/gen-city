@@ -6,27 +6,74 @@ export type CityData = {
     height: number;
 };
 export type CityGenerationParameters = {
+    /**
+     * Generation mode.
+     * Default: RUNTIME
+     */
     mode: CityGenerationMode;
+    /**
+     * Generation seed array for mode SEED.
+     */
     seed: number[];
-    startPosition: Point2D;
+    /**
+     * Start generation position.
+     * Default: Center of map size
+     */
+    startPosition: Position;
+    /**
+     * Start generation directions.
+     * Default: Left, Right, Top, Bottom
+     */
     startDirections: number[];
+    /**
+     * Minimum street length before generating an intersection or turn.
+     * Default: 10
+     */
     streetMinLength: number;
+    /**
+     * Probability of generating intersection.
+     * Default: 0.1
+     */
     probabilityIntersection: number;
+    /**
+     * Probability of generating turn.
+     * Default: 0.05
+     */
     probabilityTurn: number;
+    /**
+     * Probability of generating street end.
+     * Default: 0.001
+     */
     probabilityStreetEnd: number;
+    /**
+     * Minimum size of bulding size.
+     * Default: 3
+     */
     buildingMinSize: number;
+    /**
+     * Maximum size of bulding size.
+     * Default: 6
+     */
     buildingMaxSize: number;
+    /**
+     * Minimum distance between buildings.
+     * Default: 1
+     */
     buildingMinSpace: number;
+    /**
+     * Maximum distance between buildings.
+     * Default: 3
+     */
     buildingMaxSpace: number;
 };
 export type CityGenerationParametersCustom = {
     [key in keyof CityGenerationParameters]?: CityGenerationParameters[key];
 };
 export type PathData = {
-    position: Point2D;
+    position: Position;
     direction: number;
 };
-export type Point2D = {
+export type Position = {
     x: number;
     y: number;
 };

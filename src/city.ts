@@ -4,7 +4,7 @@ import {
   CityData,
   CityGenerationParameters,
   CityGenerationMode,
-  Point2D,
+  Position,
   MatrixTile,
   CityGenerationParametersCustom,
 } from './types';
@@ -46,7 +46,7 @@ export class City {
     return this.getAllPaths().map((path) => path.buildings).flat();
   }
 
-  public getBuildingAt(position: Point2D) {
+  public getBuildingAt(position: Position) {
     const tile = this.getAt(position);
 
     return tile instanceof Building ? tile : null;
@@ -56,7 +56,7 @@ export class City {
     return this.nodes;
   }
 
-  public getNodeAt(position: Point2D) {
+  public getNodeAt(position: Position) {
     const tile = this.getAt(position);
 
     return tile instanceof Node ? tile : null;
@@ -66,25 +66,25 @@ export class City {
     return this.nodes.map((node) => node.getOutputPaths()).flat();
   }
 
-  public getPathAt(position: Point2D) {
+  public getPathAt(position: Position) {
     const tile = this.getAt(position);
 
     return tile instanceof Path ? tile : null;
   }
 
-  public markAt(position: Point2D, tile: MatrixTile) {
+  public markAt(position: Position, tile: MatrixTile) {
     this.matrix[position.y][position.x] = tile;
   }
 
-  public getAt(position: Point2D) {
+  public getAt(position: Position) {
     return this.matrix?.[position.y]?.[position.x];
   }
 
-  public isEmptyAt(position: Point2D) {
+  public isEmptyAt(position: Position) {
     return this.getAt(position) === null;
   }
 
-  public each(callback: (position: Point2D, tile: MatrixTile) => boolean | void) {
+  public each(callback: (position: Position, tile: MatrixTile) => boolean | void) {
     for (let y = 0; y < this.height; y++) {
       for (let x = 0; x < this.width; x++) {
         const position = { x, y };
@@ -264,9 +264,9 @@ export class City {
     });
   }
 
-  private processingBuilding(path: Path, position: Point2D, size: number[], directions: number[]) {
-    const tiles: Point2D[] = [];
-    const vertices: Point2D[] = [];
+  private processingBuilding(path: Path, position: Position, size: number[], directions: number[]) {
+    const tiles: Position[] = [];
+    const vertices: Position[] = [];
 
     for (let i = 0; i < size[0]; i++) {
       const shiftParallel = getShift(directions[0], i);
@@ -305,7 +305,7 @@ export class City {
     });
   }
 
-  private addNode(position: Point2D) {
+  private addNode(position: Position) {
     const node = new Node(this.nodes.length, position);
 
     this.nodes.push(node);
@@ -365,7 +365,7 @@ export class City {
     this.markAt(node.position, node);
   }
 
-  private splitPath(path: Path, position: Point2D) {
+  private splitPath(path: Path, position: Position) {
     const newNode = this.addNode(position);
     const continuePath = newNode.addOutputPath(path.direction);
 
