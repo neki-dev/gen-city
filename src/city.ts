@@ -43,7 +43,7 @@ export class City {
   }
 
   public getAllBuildings() {
-    return this.getAllPaths().map((path) => path.buildings).flat();
+    return this.getAllPaths().map((path) => path.getBuildings()).flat();
   }
 
   public getBuildingAt(position: Position) {
@@ -72,42 +72,16 @@ export class City {
     return tile instanceof Path ? tile : null;
   }
 
-  public markAt(position: Position, tile: MatrixTile) {
-    this.matrix[position.y][position.x] = tile;
-  }
-
   public getAt(position: Position) {
     return this.matrix?.[position.y]?.[position.x];
   }
 
-  public isEmptyAt(position: Position) {
+  private markAt(position: Position, tile: MatrixTile) {
+    this.matrix[position.y][position.x] = tile;
+  }
+
+  private isEmptyAt(position: Position) {
     return this.getAt(position) === null;
-  }
-
-  public each(callback: (position: Position, tile: MatrixTile) => boolean | void) {
-    for (let y = 0; y < this.height; y++) {
-      for (let x = 0; x < this.width; x++) {
-        const position = { x, y };
-        const res = callback(position, this.getAt(position));
-
-        if (res === false) {
-          return;
-        }
-      }
-    }
-  }
-
-  public reset() {
-    for (let y = 0; y < this.height; y++) {
-      this.matrix[y] = [];
-      for (let x = 0; x < this.width; x++) {
-        this.matrix[y][x] = null;
-      }
-    }
-
-    this.seed = null;
-    this.gauge = 1;
-    this.nodes = [];
   }
 
   public async generate(params: CityGenerationParametersCustom = {}) {
@@ -146,6 +120,19 @@ export class City {
 
     this.generatePaths();
     this.generateBuildings();
+  }
+
+  private reset() {
+    for (let y = 0; y < this.height; y++) {
+      this.matrix[y] = [];
+      for (let x = 0; x < this.width; x++) {
+        this.matrix[y][x] = null;
+      }
+    }
+
+    this.seed = null;
+    this.gauge = 1;
+    this.nodes = [];
   }
 
   private generatePaths() {

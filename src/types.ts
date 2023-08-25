@@ -33,7 +33,7 @@ export type CityGenerationParameters = {
   startDirections: number[]
 
   /**
-   * Minimum street length before generating an intersection or turn.
+   * Street length before generating an intersection or turn.
    * Default: 10
    */
   streetMinLength: number

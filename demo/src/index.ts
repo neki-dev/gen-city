@@ -23,26 +23,24 @@ function generateAndRenderCity() {
   function drawPaths() {
     ctx.clearRect(0, 0, ui.screen.width, ui.screen.height);
 
+    ctx.beginPath();
     city.getAllPaths().forEach((path) => {
-      const points = path.getPoints();
-
-      ctx.beginPath();
+      const positions = path.getPositions();
       ctx.moveTo(
-        points.beg.x * tileSize + tileSize / 2,
-        points.beg.y * tileSize + tileSize / 2
+        positions.beg.x * tileSize + tileSize / 2,
+        positions.beg.y * tileSize + tileSize / 2
       );
       ctx.lineTo(
-        points.end.x * tileSize + tileSize / 2,
-        points.end.y * tileSize + tileSize / 2
+        positions.end.x * tileSize + tileSize / 2,
+        positions.end.y * tileSize + tileSize / 2
       );
-      ctx.stroke();
     });
+    ctx.stroke();
   }
 
   function drawBuildings() {
     city.getAllBuildings().forEach((building) => {
       const ton = 100 + randomRange(0, 5) * 10;
-
       ctx.fillStyle = `rgba(${ton}, ${ton}, ${ton})`;
       ctx.fillRect(
         building.position.x * tileSize,

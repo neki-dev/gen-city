@@ -7,7 +7,7 @@ import { Building } from './building';
 export class Path {
   readonly direction: number;
 
-  readonly buildings: Building[] = [];
+  private buildings: Building[] = [];
 
   private nodeBeg: Node;
 
@@ -21,7 +21,11 @@ export class Path {
     this.cursor = node.position;
   }
 
-  public getPoints() {
+  public getBuildings() {
+    return this.buildings;
+  }
+
+  public getPositions() {
     return {
       beg: this.nodeBeg.position,
       end: this.nodeEnd?.position ?? this.cursor,
