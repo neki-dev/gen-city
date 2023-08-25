@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-cycle
+/* eslint-disable import/no-cycle */
 import { Point2D } from './types';
 
 export function randomChance(value: number) {

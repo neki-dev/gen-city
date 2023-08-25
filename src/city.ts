@@ -1,4 +1,3 @@
-/* eslint-disable no-new */
 import { Path } from './path';
 import { Node } from './node';
 import {

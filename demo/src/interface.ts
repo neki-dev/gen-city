@@ -1,6 +1,7 @@
 export const ui = {
   screen: document.getElementById('screen') as HTMLCanvasElement,
   inputs: {
+    nodeDisplay: document.querySelector<HTMLInputElement>('[name=nodeDisplay]'),
     seedMode: document.querySelector<HTMLInputElement>('[name=seedMode]'),
     streetMinLength: document.querySelector<HTMLInputElement>('[name=streetMinLength]'),
     worldWidth: document.querySelector<HTMLInputElement>('[name=worldWidth]'),

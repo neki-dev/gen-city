@@ -7,4 +7,14 @@ Procedural city generation
 
 .
 
+* ### [Demo](https://gen-city.neki.guru/)
+
+* ### Install
+
+```sh
+npm i gen-city
+```
+
+.
+
 TODO...

@@ -100,8 +100,11 @@ function generateAndRenderCity() {
       }
 
       drawPaths();
-      drawNodes();
       drawBuildings();
+
+      if (ui.inputs.nodeDisplay?.checked) {
+        drawNodes();
+      }
 
       ui.screen.addEventListener("click", (event: MouseEvent) => {
         const position = {
