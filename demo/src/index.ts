@@ -105,15 +105,6 @@ function generateAndRenderCity() {
       if (ui.inputs.nodeDisplay?.checked) {
         drawNodes();
       }
-
-      ui.screen.addEventListener("click", (event: MouseEvent) => {
-        const position = {
-          x: Math.floor(event.offsetX / tileSize),
-          y: Math.floor(event.offsetY / tileSize),
-        };
-
-        console.log(city.getNodeAt(position));
-      });
     });
 }
 
