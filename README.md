@@ -49,6 +49,7 @@ await city.generate(params?)
 .
 
 ## General
+
 #### Get size
 ```ts
 const width = city.width
@@ -71,6 +72,8 @@ const matrix = city.getMatrix(): MatrixTile[][]
 ```ts
 const tile = city.getAt(position: Position): MatrixTile | null
 ```
+
+.
 
 ## Nodes
 
@@ -97,7 +100,10 @@ Get type by count of input and output paths (Turn, Cross, End)
 const type = node.getType(): NodeType
 ```
 
+.
+
 ## Paths
+
 #### Get all paths
 ```ts
 const paths = city.getAllPaths(): Path[]
@@ -138,7 +144,10 @@ Get direction in degrees
 const direction: number = path.direction
 ```
 
+.
+
 ## Buildings
+
 #### Get all buildings
 ```ts
 const buildings = city.getAllBuildings(): Building[]
@@ -167,14 +176,20 @@ const width: number = building.width
 const height: number = building.height
 ```
 
+.
+
 ## Example
+
 ```ts
 const city = new City({
   width: 200,
   height: 200,
 });
 
-city.generate().then(() => {
+city.generate({
+  streetMinLength: 15,
+}).then(() => {
+  // Draw roads
   ctx.beginPath();
   city.getAllPaths().forEach((path) => {
     const positions = path.getPositions();
@@ -183,6 +198,7 @@ city.generate().then(() => {
   });
   ctx.stroke();
 
+  // Draw buildings
   city.getAllBuildings().forEach((building) => {
     ctx.fillRect(
       building.position.x,
