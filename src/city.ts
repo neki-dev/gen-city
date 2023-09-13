@@ -107,7 +107,9 @@ export class City {
     };
 
     if (this.params.mode === CityGenerationMode.SEED) {
-      this.seed = this.params.seed ?? generateSeed();
+      this.seed = this.params.seed.length === 0 
+        ? generateSeed() 
+        : this.params.seed;
     }
 
     const node = this.addNode(this.params.startPosition);
