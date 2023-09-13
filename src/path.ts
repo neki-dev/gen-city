@@ -69,7 +69,7 @@ export class Path {
   }
 
   public addBuilding(vertices: Position[]) {
-    const building = new Building(vertices);
+    const building = new Building(this, vertices);
 
     this.buildings.push(building);
 
@@ -77,10 +77,30 @@ export class Path {
   }
 
   public getLength() {
+    const positions = this.getPositions();
+
     return Math.hypot(
-      this.nodeBeg.position.x - this.cursor.x,
-      this.nodeBeg.position.y - this.cursor.y,
+      positions.beg.x - positions.end.x,
+      positions.beg.y - positions.end.y,
     );
+  }
+
+  public remove() {
+    const outputPaths = this.nodeBeg.getOutputPaths();
+    const outputIndex = outputPaths.findIndex((path) => path === this);
+
+    if (outputIndex !== -1) {
+      outputPaths.splice(outputIndex, 1);
+    }
+
+    if (this.nodeEnd) {
+      const inputPaths = this.nodeEnd.getInputPaths();
+      const inputIndex = inputPaths.findIndex((path) => path === this);
+
+      if (inputIndex !== -1) {
+        inputPaths.splice(inputIndex, 1);
+      }
+    }
   }
 
   public each(callback: (position: Position) => void) {

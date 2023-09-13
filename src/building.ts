@@ -1,4 +1,5 @@
 /* eslint-disable import/no-cycle */
+import { Path } from './path';
 import { Position } from './types';
 
 export class Building {
@@ -10,11 +11,14 @@ export class Building {
 
   readonly height: number;
 
-  constructor(vertices: Position[]) {
+  readonly path: Path;
+
+  constructor(path: Path, vertices: Position[]) {
     if (vertices.length !== 4) {
       throw Error('Invalid building vertices');
     }
 
+    this.path = path;
     this.vertices = vertices;
 
     const xs = this.vertices.map((position) => position.x);
@@ -27,6 +31,15 @@ export class Building {
 
     this.width = Math.max(...xs) - this.position.x + 1;
     this.height = Math.max(...ys) - this.position.y + 1;
+  }
+
+  public remove() {
+    const pathBuildings = this.path.getBuildings();
+    const index = pathBuildings.findIndex((building) => building === this);
+
+    if (index !== -1) {
+      pathBuildings.splice(index, 1);
+    }
   }
 
   public each(callback: (position: Position) => void) {

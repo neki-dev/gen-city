@@ -1,9 +1,12 @@
+import { Path } from './path';
 import { Position } from './types';
 export declare class Building {
     readonly vertices: Position[];
     readonly position: Position;
     readonly width: number;
     readonly height: number;
-    constructor(vertices: Position[]);
+    readonly path: Path;
+    constructor(path: Path, vertices: Position[]);
+    remove(): void;
     each(callback: (position: Position) => void): void;
 }

@@ -138,6 +138,11 @@ const length = path.getLength(): number
 path.each(callback: (position: Position) => void)
 ```
 
+#### Remove path from nodes
+```ts
+path.remove()
+```
+
 #### Get path buildings
 ```ts
 const buildings = path.getBuildings(): Building[]
@@ -184,6 +189,11 @@ const height: number = building.height
 #### Each building positions
 ```ts
 building.each(callback: (position: Position) => void)
+```
+
+#### Remove building from path
+```ts
+building.remove()
 ```
 
 .

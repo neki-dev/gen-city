@@ -25,5 +25,6 @@ export declare class Path {
     setNodeEnd(node: Node): void;
     addBuilding(vertices: Position[]): Building;
     getLength(): number;
+    remove(): void;
     each(callback: (position: Position) => void): void;
 }
