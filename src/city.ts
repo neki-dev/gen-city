@@ -11,7 +11,6 @@ import {
 import {
   randomChance, generateSeed, getShift, forkDirection, turnDirection, randomRange,
 } from './utils';
-import { Building } from './building';
 
 export class City {
   readonly width: number;
@@ -34,10 +33,6 @@ export class City {
     this.height = height;
   }
 
-  public getMatrix() {
-    return this.matrix;
-  }
-
   public getSeed() {
     return this.seed;
   }
@@ -46,42 +41,12 @@ export class City {
     return this.getAllPaths().map((path) => path.getBuildings()).flat();
   }
 
-  public getBuildingAt(position: Position) {
-    const tile = this.getAt(position);
-
-    return tile instanceof Building ? tile : null;
-  }
-
   public getAllNodes() {
     return this.nodes;
   }
 
-  public getNodeAt(position: Position) {
-    const tile = this.getAt(position);
-
-    return tile instanceof Node ? tile : null;
-  }
-
   public getAllPaths() {
     return this.nodes.map((node) => node.getOutputPaths()).flat();
-  }
-
-  public getPathAt(position: Position) {
-    const tile = this.getAt(position);
-
-    return tile instanceof Path ? tile : null;
-  }
-
-  public getAt(position: Position) {
-    return this.matrix?.[position.y]?.[position.x];
-  }
-
-  private markAt(position: Position, tile: MatrixTile) {
-    this.matrix[position.y][position.x] = tile;
-  }
-
-  private isEmptyAt(position: Position) {
-    return this.getAt(position) === null;
   }
 
   public async generate(params: CityGenerationParametersCustom = {}) {
@@ -292,6 +257,18 @@ export class City {
     tiles.forEach((tilePosition) => {
       this.markAt(tilePosition, building);
     });
+  }
+
+  private getAt(position: Position) {
+    return this.matrix?.[position.y]?.[position.x];
+  }
+
+  private markAt(position: Position, tile: MatrixTile) {
+    this.matrix[position.y][position.x] = tile;
+  }
+
+  private isEmptyAt(position: Position) {
+    return this.getAt(position) === null;
   }
 
   private addNode(position: Position) {

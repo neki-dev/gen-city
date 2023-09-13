@@ -1,7 +1,6 @@
 import { Path } from './path';
 import { Node } from './node';
-import { CityData, Position, MatrixTile, CityGenerationParametersCustom } from './types';
-import { Building } from './building';
+import { CityData, CityGenerationParametersCustom } from './types';
 export declare class City {
     readonly width: number;
     readonly height: number;
@@ -11,23 +10,19 @@ export declare class City {
     private gauge;
     private params;
     constructor({ width, height }: CityData);
-    getMatrix(): MatrixTile[][];
     getSeed(): number[] | null;
-    getAllBuildings(): Building[];
-    getBuildingAt(position: Position): Building | null;
+    getAllBuildings(): import("./building").Building[];
     getAllNodes(): Node[];
-    getNodeAt(position: Position): Node | null;
     getAllPaths(): Path[];
-    getPathAt(position: Position): Path | null;
-    getAt(position: Position): MatrixTile;
-    private markAt;
-    private isEmptyAt;
     generate(params?: CityGenerationParametersCustom): Promise<void>;
     private reset;
     private generatePaths;
     private processingPath;
     private generateBuildings;
     private processingBuilding;
+    private getAt;
+    private markAt;
+    private isEmptyAt;
     private addNode;
     private closePath;
     private forkPath;

@@ -86,20 +86,10 @@ export class Path {
   }
 
   public remove() {
-    const outputPaths = this.nodeBeg.getOutputPaths();
-    const outputIndex = outputPaths.findIndex((path) => path === this);
-
-    if (outputIndex !== -1) {
-      outputPaths.splice(outputIndex, 1);
-    }
+    this.nodeBeg.removeOutputPath(this);
 
     if (this.nodeEnd) {
-      const inputPaths = this.nodeEnd.getInputPaths();
-      const inputIndex = inputPaths.findIndex((path) => path === this);
-
-      if (inputIndex !== -1) {
-        inputPaths.splice(inputIndex, 1);
-      }
+      this.nodeEnd.removeInputPath(this);
     }
   }
 

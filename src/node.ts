@@ -24,6 +24,14 @@ export class Node {
     return path;
   }
 
+  public removeOutputPath(path: Path) {
+    const index = this.outputPaths.indexOf(path);
+
+    if (index !== -1) {
+      this.outputPaths.splice(index, 1);
+    }
+  }
+
   public getOutputPaths() {
     return this.outputPaths;
   }

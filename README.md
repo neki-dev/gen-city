@@ -62,17 +62,6 @@ Return seed if city was generated with runtime mode
 const seed = city.getSeed(): number[] | null
 ```
 
-#### Get matrix
-Get all tiles (Node, Path, Building) as matrix
-```ts
-const matrix = city.getMatrix(): MatrixTile[][]
-```
-
-#### Get tile at matrix position
-```ts
-const tile = city.getAt(position: Position): MatrixTile | null
-```
-
 .
 
 ## Nodes
@@ -80,11 +69,6 @@ const tile = city.getAt(position: Position): MatrixTile | null
 #### Get all nodes
 ```ts
 const nodes = city.getAllNodes(): Node[]
-```
-
-#### Get node at matrix position
-```ts
-const node = city.getNodeAt(position: Position): Node | null
 ```
 
 #### Get node paths
@@ -107,11 +91,6 @@ const type = node.getType(): NodeType
 #### Get all paths
 ```ts
 const paths = city.getAllPaths(): Path[]
-```
-
-#### Get path at matrix position
-```ts
-const path = city.getPathAt(position: Position): Path | null
 ```
 
 #### Get path positions
@@ -161,11 +140,6 @@ const direction: number = path.direction
 #### Get all buildings
 ```ts
 const buildings = city.getAllBuildings(): Building[]
-```
-
-#### Get building at matrix position
-```ts
-const building = city.getBuildingAt(position: Position): Building | null
 ```
 
 #### Get building vertices

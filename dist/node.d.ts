@@ -7,6 +7,7 @@ export declare class Node {
     private inputPaths;
     constructor(id: number, position: Position);
     addOutputPath(direction: number): Path;
+    removeOutputPath(path: Path): void;
     getOutputPaths(): Path[];
     addInputPath(path: Path): void;
     removeInputPath(path: Path): void;
