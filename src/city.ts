@@ -95,7 +95,7 @@ export class City {
         y: Math.round(this.height / 2),
       },
       startDirections: [0, 90, 180, 270],
-      streetMinLength: 0,
+      streetMinLength: 10,
       buildingMinSize: 3,
       buildingMaxSize: 6,
       buildingMinSpace: 1,

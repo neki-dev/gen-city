@@ -28,4 +28,15 @@ export class Building {
     this.width = Math.max(...xs) - this.position.x + 1;
     this.height = Math.max(...ys) - this.position.y + 1;
   }
+
+  public each(callback: (position: Position) => void) {
+    for (let x = 0; x < this.width; x++) {
+      for (let y = 0; y < this.height; y++) {
+        callback({
+          x: this.position.x + x,
+          y: this.position.y + y,
+        });
+      }
+    }
+  }
 }

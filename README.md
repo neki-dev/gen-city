@@ -133,6 +133,11 @@ const nodeEnd = path.getNodeEnd(): Node
 const length = path.getLength(): number
 ```
 
+#### Each path positions
+```ts
+path.each(callback: (position: Position) => void)
+```
+
 #### Get path buildings
 ```ts
 const buildings = path.getBuildings(): Building[]
@@ -174,6 +179,11 @@ const position: Position = building.position
 ```ts
 const width: number = building.width
 const height: number = building.height
+```
+
+#### Each building positions
+```ts
+building.each(callback: (position: Position) => void)
 ```
 
 .

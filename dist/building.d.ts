@@ -5,4 +5,5 @@ export declare class Building {
     readonly width: number;
     readonly height: number;
     constructor(vertices: Position[]);
+    each(callback: (position: Position) => void): void;
 }
