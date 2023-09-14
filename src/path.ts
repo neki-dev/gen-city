@@ -98,7 +98,7 @@ export class Path {
     const length = this.getLength();
     const position = { ...this.nodeBeg.position };
 
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i <= length; i++) {
       callback(position);
 
       position.x += shift.x;

@@ -271,10 +271,14 @@ export class City {
     return this.getAt(position) === null;
   }
 
-  private addNode(position: Position) {
+  private addNode(position: Position, index?: number) {
     const node = new Node(this.nodes.length, position);
 
-    this.nodes.push(node);
+    if (index === undefined) {
+      this.nodes.push(node);
+    } else {
+      this.nodes.splice(index, 0, node);
+    }
 
     return node;
   }
@@ -332,15 +336,18 @@ export class City {
   }
 
   private splitPath(path: Path, position: Position) {
-    const newNode = this.addNode(position);
-    const continuePath = newNode.addOutputPath(path.direction);
+    const nodeBeg = path.getNodeBeg();
+    const nodeBegIndex = this.nodes.findIndex((node) => node === nodeBeg);
 
-    this.markAt(position, newNode);
+    const nodeNew = this.addNode(position, nodeBegIndex + 1);
+    const continuePath = nodeNew.addOutputPath(path.direction);
 
-    const existNodeEnd = path.getNodeEnd();
+    this.markAt(position, nodeNew);
 
-    if (existNodeEnd) {
-      continuePath.setNodeEnd(existNodeEnd);
+    const nodeEnd = path.getNodeEnd();
+
+    if (nodeEnd) {
+      continuePath.setNodeEnd(nodeEnd);
     } else {
       continuePath.setCursor(path.getCursor());
     }
@@ -352,9 +359,9 @@ export class City {
       }
     });
 
-    path.setNodeEnd(newNode);
+    path.setNodeEnd(nodeNew);
 
-    return newNode;
+    return nodeNew;
   }
 
   private getCross(path: Path, length: number = 1) {
