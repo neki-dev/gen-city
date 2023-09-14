@@ -88,6 +88,7 @@ function generateAndRenderCity() {
       buildingMaxSize: Number(ui.inputs.buildingMaxSize?.value),
       buildingMinSpace: Number(ui.inputs.buildingMinSpace?.value),
       buildingMaxSpace: Number(ui.inputs.buildingMaxSpace?.value),
+      buildingOffset: Number(ui.inputs.buildingOffset?.value),
       probabilityIntersection: Number(ui.inputs.probabilityIntersection?.value),
       probabilityTurn: Number(ui.inputs.probabilityTurn?.value),
       probabilityStreetEnd: Number(ui.inputs.probabilityStreetEnd?.value),

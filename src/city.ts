@@ -65,6 +65,7 @@ export class City {
       buildingMaxSize: 6,
       buildingMinSpace: 1,
       buildingMaxSpace: 3,
+      buildingOffset: 0,
       probabilityIntersection: 0.1,
       probabilityTurn: 0.05,
       probabilityStreetEnd: 0.001,
@@ -184,11 +185,11 @@ export class City {
       };
 
       turnDirection(path.direction).forEach((direction) => {
-        let stepOffset = 0;
+        let stepOffset = this.params.buildingOffset;
 
         while (path.getLength() > stepOffset) {
           const stepShift = getShift(path.direction, stepOffset);
-          const shiftFromPath = getShift(direction);
+          const shiftFromPath = getShift(direction, this.params.buildingOffset + 1);
           const startPosition = {
             x: position.x + stepShift.x + shiftFromPath.x,
             y: position.y + stepShift.y + shiftFromPath.y,
@@ -198,7 +199,7 @@ export class City {
             randomRange(this.params.buildingMinSize, this.params.buildingMaxSize),
           ];
 
-          if (stepOffset + size[0] > path.getLength()) {
+          if (stepOffset + size[0] + this.params.buildingOffset > path.getLength()) {
             break;
           }
 

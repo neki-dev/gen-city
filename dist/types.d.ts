@@ -65,6 +65,11 @@ export type CityGenerationParameters = {
      * Default: 3
      */
     buildingMaxSpace: number;
+    /**
+     * Distance between building and path.
+     * Default: 0
+     */
+    buildingOffset: number;
 };
 export type CityGenerationParametersCustom = {
     [key in keyof CityGenerationParameters]?: CityGenerationParameters[key];

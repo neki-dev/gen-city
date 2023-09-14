@@ -10,6 +10,7 @@ export const ui = {
     buildingMaxSize: document.querySelector<HTMLInputElement>('[name=buildingMaxSize]'),
     buildingMinSpace: document.querySelector<HTMLInputElement>('[name=buildingMinSpace]'),
     buildingMaxSpace: document.querySelector<HTMLInputElement>('[name=buildingMaxSpace]'),
+    buildingOffset: document.querySelector<HTMLInputElement>('[name=buildingOffset]'),
     probabilityIntersection: document.querySelector<HTMLInputElement>('[name=probabilityIntersection]'),
     probabilityTurn: document.querySelector<HTMLInputElement>('[name=probabilityTurn]'),
     probabilityStreetEnd: document.querySelector<HTMLInputElement>('[name=probabilityStreetEnd]'),

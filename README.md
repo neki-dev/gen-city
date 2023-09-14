@@ -45,6 +45,7 @@ await city.generate(params?)
 | `buildingMaxSize` | Maximum size of bulding size | 6 |
 | `buildingMinSpace` | Minimum distance between buildings | 1 |
 | `buildingMaxSpace` | Maximum distance between buildings | 3 |
+| `buildingOffset` | Distance between building and path | 0 |
 
 .
 
