@@ -132,7 +132,7 @@ export class City {
       // Out of matrix
       this.getAt(nextCursor) === undefined
       // Street end
-      || this.variability(this.params.probabilityStreetEnd)
+      || this.variabilityChance(this.params.probabilityStreetEnd)
     ) {
       this.closePath(path);
 
@@ -168,9 +168,9 @@ export class City {
       path.getLength() > streetLength
       && !this.getCross(path, streetLength)
     ) {
-      if (this.variability(this.params.probabilityIntersection)) {
+      if (this.variabilityChance(this.params.probabilityIntersection)) {
         this.forkPath(path);
-      } else if (this.variability(this.params.probabilityTurn)) {
+      } else if (this.variabilityChance(this.params.probabilityTurn)) {
         this.turnPath(path);
       }
     }
@@ -195,8 +195,8 @@ export class City {
             y: position.y + stepShift.y + shiftFromPath.y,
           };
           const size = [
-            randomRange(this.params.buildingMinSize, this.params.buildingMaxSize),
-            randomRange(this.params.buildingMinSize, this.params.buildingMaxSize),
+            this.variabilityRange(this.params.buildingMinSize, this.params.buildingMaxSize),
+            this.variabilityRange(this.params.buildingMinSize, this.params.buildingMaxSize),
           ];
 
           if (stepOffset + size[0] + this.params.buildingOffset > path.getLength()) {
@@ -208,7 +208,7 @@ export class City {
             direction,
           ]);
 
-          const spaceBetweenBuildings = randomRange(
+          const spaceBetweenBuildings = this.variabilityRange(
             this.params.buildingMinSpace,
             this.params.buildingMaxSpace,
           );
@@ -297,7 +297,7 @@ export class City {
 
   private forkPath(path: Path) {
     let directions = forkDirection(path.direction)
-      .sort(() => (this.variability(0.5) ? 1 : -1));
+      .sort(() => (this.variabilityChance(0.5) ? 1 : -1));
 
     directions = this.filterDirections(path, directions);
 
@@ -311,7 +311,7 @@ export class City {
     const node = this.closePath(path);
 
     for (let i = 0; i < directions.length; i++) {
-      if (i < 2 || this.variability(0.5)) {
+      if (i < 2 || this.variabilityChance(0.5)) {
         node.addOutputPath(directions[i]);
       }
     }
@@ -321,7 +321,7 @@ export class City {
 
   private turnPath(path: Path) {
     let directions = turnDirection(path.direction)
-      .sort(() => (this.variability(0.5) ? 1 : -1));
+      .sort(() => (this.variabilityChance(0.5) ? 1 : -1));
 
     directions = this.filterDirections(path, directions);
 
@@ -399,7 +399,7 @@ export class City {
     });
   }
 
-  private variability(value: number) {
+  private variabilityChance(value: number) {
     if (!this.seed) {
       return randomChance(value);
     }
@@ -409,5 +409,17 @@ export class City {
     this.gauge++;
 
     return seedPoint / 1000 >= 1.0 - value;
+  }
+
+  private variabilityRange(min: number, max: number) {
+    if (!this.seed) {
+      return randomRange(min, max);
+    }
+
+    const seedPoint = this.seed[this.gauge % this.seed.length];
+
+    this.gauge++;
+
+    return Math.floor(min + (seedPoint / 1000) * (max - min + 1));
   }
 }
