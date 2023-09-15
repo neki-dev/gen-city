@@ -399,7 +399,7 @@ export class City {
     });
   }
 
-  private variabilityChance(value: number) {
+  public variabilityChance(value: number) {
     if (!this.seed) {
       return randomChance(value);
     }
@@ -411,7 +411,7 @@ export class City {
     return seedPoint / 1000 >= 1.0 - value;
   }
 
-  private variabilityRange(min: number, max: number) {
+  public variabilityRange(min: number, max: number) {
     if (!this.seed) {
       return randomRange(min, max);
     }

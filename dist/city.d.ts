@@ -30,6 +30,6 @@ export declare class City {
     private splitPath;
     private getCross;
     private filterDirections;
-    private variabilityChance;
-    private variabilityRange;
+    variabilityChance(value: number): boolean;
+    variabilityRange(min: number, max: number): number;
 }
