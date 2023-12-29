@@ -7,10 +7,21 @@ Procedural city generation
 
 .
 
-* ### [Demo](https://gen-city.neki.guru/)
+[Demo](https://gen-city.neki.guru/)
 
-* ### Install
+Documentation
 
+* [Install](https://github.com/neki-dev/gen-city?tab=readme-ov-file#install)
+* [Generation](https://github.com/neki-dev/gen-city?tab=readme-ov-file#generation)
+* [General](https://github.com/neki-dev/gen-city?tab=readme-ov-file#general)
+* [Nodes](https://github.com/neki-dev/gen-city?tab=readme-ov-file#nodes)
+* [Paths](https://github.com/neki-dev/gen-city?tab=readme-ov-file#paths)
+* [Buildings](https://github.com/neki-dev/gen-city?tab=readme-ov-file#buildings)
+* [Example](https://github.com/neki-dev/gen-city?tab=readme-ov-file#example)
+
+.
+
+## Install
 ```sh
 npm i gen-city
 ```
@@ -50,7 +61,6 @@ await city.generate(params?)
 .
 
 ## General
-
 #### Get size
 ```ts
 const width = city.width
@@ -66,7 +76,6 @@ const seed = city.getSeed(): number[] | null
 .
 
 ## Nodes
-
 #### Get all nodes
 ```ts
 const nodes = city.getAllNodes(): Node[]
@@ -88,7 +97,6 @@ const type = node.getType(): NodeType
 .
 
 ## Paths
-
 #### Get all paths
 ```ts
 const paths = city.getAllPaths(): Path[]
@@ -137,7 +145,6 @@ const direction: number = path.direction
 .
 
 ## Buildings
-
 #### Get all buildings
 ```ts
 const buildings = city.getAllBuildings(): Building[]
@@ -174,7 +181,6 @@ building.remove()
 .
 
 ## Example
-
 ```ts
 const city = new City({
   width: 200,
