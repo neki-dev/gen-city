@@ -44,9 +44,9 @@ await city.generate(params?)
 ```
 | Param | Description | Default |
 | ------|-------------|---------|
-| `mode` | Generation mode (`Runtime` or `Seed`) | `Runtime` |
+| `mode` | Generation mode.<br>* `Runtime` - Random generation in runtime<br>* `Seed` - Generation follows the specified seed | Runtime |
 | `seed` | Generation seed array for seed mode | - |
-| `startPosition` | Start generation position | Center of map |
+| `startPosition` | Position of the first node. | Center of map |
 | `startDirections` | Start generation directions | Left, Right, Top, Bottom |
 | `streetMinLength` | Street length before generating an intersection or turn | 10 |
 | `probabilityIntersection` | Probability of generating intersection | 0.1 |
