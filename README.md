@@ -44,16 +44,16 @@ await city.generate(params?)
 ```
 | Param | Description | Default |
 | ------|-------------|---------|
-| `mode` | Generation mode | RUNTIME |
-| `seed` | Generation seed array for mode SEED | - |
+| `mode` | Generation mode (`Runtime` or `Seed`) | `Runtime` |
+| `seed` | Generation seed array for seed mode | - |
 | `startPosition` | Start generation position | Center of map |
 | `startDirections` | Start generation directions | Left, Right, Top, Bottom |
 | `streetMinLength` | Street length before generating an intersection or turn | 10 |
 | `probabilityIntersection` | Probability of generating intersection | 0.1 |
 | `probabilityTurn` | Probability of generating turn | 0.05 |
 | `probabilityStreetEnd` | Probability of generating street end | 0.001 |
-| `buildingMinSize` | Minimum size of bulding size | 3 |
-| `buildingMaxSize` | Maximum size of bulding size | 6 |
+| `buildingMinSize` | Minimum building size | 3 |
+| `buildingMaxSize` | Maximum building size | 6 |
 | `buildingMinSpace` | Minimum distance between buildings | 1 |
 | `buildingMaxSpace` | Maximum distance between buildings | 3 |
 | `buildingOffset` | Distance between building and path | 0 |
