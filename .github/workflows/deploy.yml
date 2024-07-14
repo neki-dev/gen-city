@@ -16,7 +16,7 @@ jobs:
         uses: burnett01/rsync-deployments@7.0.1
         with:
           switches: -a --delete --progress
-          path: demo/dist/
+          path: demo/
           remote_path: ${{ secrets.SSH_REMOTE_DIR }}
           remote_host: ${{ secrets.SSH_HOST }}
           remote_user: ${{ secrets.SSH_USER }}
