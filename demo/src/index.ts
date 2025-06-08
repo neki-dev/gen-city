@@ -1,8 +1,9 @@
-import { City, CityGenerationMode, NodeType } from "../../src/index";
-import { randomRange } from "../../src/utils";
-import { ui } from "./interface";
+import { City, CityGenerationMode, NodeType } from '../../src/index';
+import { randomRange } from '../../src/utils';
 
-const ctx = ui.screen.getContext("2d") as CanvasRenderingContext2D;
+import { ui } from './interface';
+
+const ctx = ui.screen.getContext('2d') as CanvasRenderingContext2D;
 const tileSize = 4;
 
 function generateAndRenderCity() {
@@ -16,7 +17,7 @@ function generateAndRenderCity() {
   ui.screen.width = city.width * tileSize;
   ui.screen.height = city.height * tileSize;
   ctx.lineWidth = tileSize;
-  ctx.textAlign = "center";
+  ctx.textAlign = 'center';
 
   // DRAW
 
@@ -28,11 +29,11 @@ function generateAndRenderCity() {
       const positions = path.getPositions();
       ctx.moveTo(
         positions.beg.x * tileSize + tileSize / 2,
-        positions.beg.y * tileSize + tileSize / 2
+        positions.beg.y * tileSize + tileSize / 2,
       );
       ctx.lineTo(
         positions.end.x * tileSize + tileSize / 2,
-        positions.end.y * tileSize + tileSize / 2
+        positions.end.y * tileSize + tileSize / 2,
       );
     });
     ctx.stroke();
@@ -46,7 +47,7 @@ function generateAndRenderCity() {
         building.position.x * tileSize,
         building.position.y * tileSize,
         building.width * tileSize,
-        building.height * tileSize
+        building.height * tileSize,
       );
     });
   }
@@ -55,15 +56,15 @@ function generateAndRenderCity() {
     city.getAllNodes().forEach((node) => {
       switch (node.getType()) {
         case NodeType.CROSS: {
-          ctx.fillStyle = "red";
+          ctx.fillStyle = 'red';
           break;
         }
         case NodeType.TURN: {
-          ctx.fillStyle = "orange";
+          ctx.fillStyle = 'orange';
           break;
         }
         case NodeType.END: {
-          ctx.fillStyle = "blue";
+          ctx.fillStyle = 'blue';
           break;
         }
       }
@@ -71,7 +72,7 @@ function generateAndRenderCity() {
         node.position.x * tileSize,
         node.position.y * tileSize,
         tileSize,
-        tileSize
+        tileSize,
       );
     });
   }
@@ -95,7 +96,7 @@ function generateAndRenderCity() {
     })
     .then(() => {
       if (ui.inputs.seedMode?.checked) {
-        console.log("SEED =", city.getSeed());
+        console.log('SEED =', city.getSeed());
       }
 
       drawPaths();
@@ -107,5 +108,5 @@ function generateAndRenderCity() {
     });
 }
 
-ui.buttons.generate?.addEventListener("click", generateAndRenderCity);
+ui.buttons.generate?.addEventListener('click', generateAndRenderCity);
 generateAndRenderCity();
