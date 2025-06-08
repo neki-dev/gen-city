@@ -1,6 +1,6 @@
-/* eslint-disable import/no-cycle */
 import { Path } from './path';
-import { NodeType, Position } from './types';
+import type { Position } from './types';
+import { NodeType } from './types';
 
 export class Node {
   readonly position: Position;

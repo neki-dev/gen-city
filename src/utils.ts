@@ -1,5 +1,4 @@
-/* eslint-disable import/no-cycle */
-import { Position } from './types';
+import type { Position } from './types';
 
 export function randomChance(value: number) {
   return Math.random() > 1.0 - value;

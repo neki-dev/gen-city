@@ -1,12 +1,13 @@
-import { Path } from './path';
 import { Node } from './node';
-import {
+import { Path } from './path';
+import type {
   CityData,
   CityGenerationParameters,
-  CityGenerationMode,
   Position,
   MatrixTile,
-  CityGenerationParametersCustom,
+  CityGenerationParametersCustom } from './types';
+import {
+  CityGenerationMode,
 } from './types';
 import {
   randomChance, generateSeed, getShift, forkDirection, turnDirection, randomRange,
@@ -73,8 +74,8 @@ export class City {
     };
 
     if (this.params.mode === CityGenerationMode.SEED) {
-      this.seed = this.params.seed.length === 0 
-        ? generateSeed() 
+      this.seed = this.params.seed.length === 0
+        ? generateSeed()
         : this.params.seed;
     }
 

@@ -1,5 +1,6 @@
 import { Path } from './path';
-import { NodeType, Position } from './types';
+import type { Position } from './types';
+import { NodeType } from './types';
 export declare class Node {
     readonly position: Position;
     readonly id: number;

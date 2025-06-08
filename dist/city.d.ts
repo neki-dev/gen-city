@@ -1,6 +1,6 @@
-import { Path } from './path';
 import { Node } from './node';
-import { CityData, CityGenerationParametersCustom } from './types';
+import { Path } from './path';
+import type { CityData, CityGenerationParametersCustom } from './types';
 export declare class City {
     readonly width: number;
     readonly height: number;

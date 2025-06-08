@@ -1,7 +1,6 @@
-/* eslint-disable import/no-cycle */
-import { Building } from './building';
-import { Node } from './node';
-import { Path } from './path';
+import type { Building } from './building';
+import type { Node } from './node';
+import type { Path } from './path';
 
 export type CityData = {
   width: number

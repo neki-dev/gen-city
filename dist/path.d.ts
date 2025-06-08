@@ -1,6 +1,6 @@
-import { Position } from './types';
-import { Node } from './node';
 import { Building } from './building';
+import type { Node } from './node';
+import type { Position } from './types';
 export declare class Path {
     readonly direction: number;
     private buildings;

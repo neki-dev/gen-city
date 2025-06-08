@@ -1,8 +1,7 @@
-/* eslint-disable import/no-cycle */
-import { Position } from './types';
-import { Node } from './node';
-import { getShift } from './utils';
 import { Building } from './building';
+import type { Node } from './node';
+import type { Position } from './types';
+import { getShift } from './utils';
 
 export class Path {
   readonly direction: number;

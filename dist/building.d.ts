@@ -1,5 +1,5 @@
-import { Path } from './path';
-import { Position } from './types';
+import type { Path } from './path';
+import type { Position } from './types';
 export declare class Building {
     readonly vertices: Position[];
     readonly position: Position;

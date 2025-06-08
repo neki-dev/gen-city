@@ -1,4 +1,4 @@
-import { Position } from './types';
+import type { Position } from './types';
 export declare function randomChance(value: number): boolean;
 export declare function randomItem(list: any[]): any;
 export declare function randomRange(min: number, max: number): number;
